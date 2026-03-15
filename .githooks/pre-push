@@ -1,8 +1,2 @@
 #!/usr/bin/env bash
-set -e
-
-if [ "$MY_PRE_PUSH_ALREADY_RAN" = "1" ]; then
-  exit 0
-fi
-
-MY_PRE_PUSH_ALREADY_RAN=1 npm run push-tools
+[ "$RUNONCE" = 1 ] || RUNONCE=1 npm run push-tools
