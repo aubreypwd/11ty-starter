@@ -21,8 +21,11 @@
     "serve": "npm run reset && eleventy --serve",
     "build": "npm run reset && eleventy",
     "reset": "rimraf docs/",
-    "push-tools": "git subtree push --prefix=src/_includes/11ty-starter-common git@github.com:aubreypwd/11ty-starter-common.git v2",
-    "pull-tools": "git subtree pull --prefix=src/_includes/11ty-starter-common git@github.com:aubreypwd/11ty-starter-common.git v2 --squash"
+    "tools:push": "git subtree push --prefix=src/_includes/11ty-starter-common git@github.com:aubreypwd/11ty-starter-common.git v2",
+    "tools:pull": "git subtree pull --prefix=src/_includes/11ty-starter-common git@github.com:aubreypwd/11ty-starter-common.git v2 --squash",
+    "setup": "npm run setup:git-hooks",
+    "setup:git-hooks": "git config core.hooksPath .githooks",
+    "postinstall": "npm run setup && npm run tools:pull"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
