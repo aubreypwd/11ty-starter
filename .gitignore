@@ -1,0 +1,5 @@
+.DS_Store
+/node_modules
+.plugin-clean
+.sublime-project.sublime-workspace
+_site/
