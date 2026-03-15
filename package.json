@@ -25,7 +25,7 @@
     "tools:pull": "git subtree pull --prefix=src/_includes/11ty-starter-common git@github.com:aubreypwd/11ty-starter-common.git v2 --squash",
     "setup": "npm run setup:git-hooks",
     "setup:git-hooks": "git config core.hooksPath .githooks",
-    "postinstall": "npm run setup && npm run tools:pull"
+    "postinstall": "npm run setup && ( npm run tools:pull || true )"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
