@@ -1,0 +1,56 @@
+---
+{
+	layout: null,
+	permalink: "/llms.txt"
+}
+---
+# {{ jsonld.LocalBusiness.name or "Unknown Business" }}
+
+> {{ jsonld.LocalBusiness.name or "Unknown Business" }} is a {{ jsonld.LocalBusiness.priceRange or "local entertainment provider" }} serving {{ jsonld.LocalBusiness.areaServed or "the Anaheim, California area" }} with {{ jsonld.LocalBusiness.description or "unique guided adventures inspired by Goofy" }}.
+
+{{ jsonld.LocalBusiness.description or "Unknown description." }}
+{% if jsonld.LocalBusiness.address and (jsonld.LocalBusiness.address.streetAddress or jsonld.LocalBusiness.address.addressLocality) %}Primary location: {{ jsonld.LocalBusiness.address.streetAddress or "Unknown address" }}{% if jsonld.LocalBusiness.address.addressLocality %}, {{ jsonld.LocalBusiness.address.addressLocality }}{% endif %}{% if jsonld.LocalBusiness.address.addressRegion %}, {{ jsonld.LocalBusiness.address.addressRegion }}{% endif %}{% if jsonld.LocalBusiness.address.postalCode %} {{ jsonld.LocalBusiness.address.postalCode }}{% endif %}{% endif %}
+{% if jsonld.LocalBusiness.telephone %}Phone: {{ jsonld.LocalBusiness.telephone }}{% endif %}
+{% if jsonld.LocalBusiness.areaServed %}Service areas: {{ jsonld.LocalBusiness.areaServed }}{% endif %}
+{% if jsonld.Person.knowsAbout and jsonld.Person.knowsAbout | length %}Primary audience: {{ jsonld.Person.knowsAbout | join(", ") }}{% endif %}
+{% if jsonld.LocalBusiness.openingHours and jsonld.LocalBusiness.openingHours | length %}Hours: {{ jsonld.LocalBusiness.openingHours | join("; ") }}{% endif %}
+Booking / contact: {{ site.baseUrl }}#booking
+
+## Core Business Information
+
+- [Homepage]({{ site.baseUrl }}#homepage): Overview of Goofy's Disneyland Adventure Co., immersive tours, and local entertainment schedule.
+- [Contact]({{ site.baseUrl }}#contact): Primary contact details, phone, and directions to the Anaheim experience.
+- [About]({{ site.baseUrl }}#about): Background on the Goofy-themed host crew, trust signals, and regional expertise.
+
+## Services
+
+{% for key, service in jsonld | dictsort -%}
+{%- if service['@type'] == 'Service' -%}
+{%- set anchor = ((service['@id'] or service.name) | replace("#", "") | replace(" ", "-") | lower) -%}
+- [{{ service.name }}]({{ site.baseUrl }}#{{ anchor }}): {{ service.description }}
+{%- endif -%}
+{%- endfor %}
+
+## Local Relevance
+
+- [Anaheim Service Page]({{ site.baseUrl }}#anaheim-service): Local resources and booking tips for Anaheim visitors.
+- [California Parks Page]({{ site.baseUrl }}#california-parks): Regional coverage for Disneyland-area travelers.
+- [Downtown Disney & Surrounding Areas]({{ site.baseUrl }}#downtown-disney): Coverage for dining, shopping, and nearby neighborhoods.
+- [Directions / Map]({{ site.baseUrl }}#directions): Map, directions, and transit tips for Goofy-hosted meet-ups.
+
+## Conversions
+
+- [Book Appointment]({{ site.baseUrl }}#book): Schedule a guided adventure, photo session, or junior lesson.
+- [Request Quote]({{ site.baseUrl }}#quote): Request a custom itinerary or group experience estimate.
+- [FAQ]({{ site.baseUrl }}#faq): Answers about pricing, timing, protocols, and experience coverage.
+
+## Authority & Trust
+
+- [Case Studies / Portfolio]({{ site.baseUrl }}#portfolio): Examples of completed adventures, unexpected wins, and happy families.
+- [Certifications / Credentials]({{ site.baseUrl }}#credentials): Licenses, training, and approvals that keep the Goofy crew accountable.
+- [Policies]({{ site.baseUrl }}#policies): Safety, cancellation, and guest guarantees for every adventure.
+
+## Optional
+
+- [Promotions / Special Offers]({{ site.baseUrl }}#offers): Seasonal offers, character meet-and-greets, and limited-time bundles.
+- [Community / Sponsorships]({{ site.baseUrl }}#community): Local involvement, partnerships, and Anaheim-area events.
