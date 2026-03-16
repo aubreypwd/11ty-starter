@@ -18,14 +18,16 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "serve": "npm run reset && eleventy --serve",
+    "serve": "npm run reset && eleventy --serve --port=8083",
     "build": "npm run reset && eleventy",
     "reset": "rimraf docs/",
     "tools:push": "git subtree push --prefix=src/_includes/11ty-starter-common git@github.com:aubreypwd/11ty-starter-common.git v2",
     "tools:pull": "git subtree pull --prefix=src/_includes/11ty-starter-common git@github.com:aubreypwd/11ty-starter-common.git v2 --squash",
     "setup": "npm run setup:git-hooks",
     "setup:git-hooks": "git config core.hooksPath .githooks",
-    "postinstall": "npm run setup && ( npm run tools:pull || true )"
+    "postinstall": "npm run setup && ( npm run tools:pull || true )",
+    "netlify:live": "netlify dev --live localhost",
+    "netlify:dev": "netlify dev"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
