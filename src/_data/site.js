@@ -28,7 +28,14 @@ site.jsonld = [
 	require( '../_includes/11ty-starter-common/data/jsonld/website.js' )( site ),
 	require( '../_includes/11ty-starter-common/data/jsonld/webpage.js' )( site ),
 	require( '../_includes/11ty-starter-common/data/jsonld/person.js' )( site ),
-	require( '../_includes/11ty-starter-common/data/jsonld/local-business.js' )( site ),
+	require( '../_includes/11ty-starter-common/data/jsonld/local-business.js' )( site, {
+		address: {
+			postalCode: '87114',
+			addressLocality: 'Albuquerque', // City.
+			addressRegion: 'NM', // State.
+			addressCountry: 'US', // US
+		}
+	} ),
 ];
 
 site.llms = {
