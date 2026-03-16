@@ -1,3 +1,4 @@
+require( 'module-alias/register' );
 const fs = require( 'fs/promises' );
 const path = require( 'path' );
 const eleventyToolsConfig = require( './src/_includes/11ty-starter-common/.eleventy.js' );
