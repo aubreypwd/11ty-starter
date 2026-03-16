@@ -24,29 +24,15 @@ const site = {
 	}
 };
 
-site.jsonld = {
-	WebSite: {
-		...( require( '../_includes/11ty-starter-common/data/jsonld/website.js' )( site ) ?? {} ),
-		// Overrides here.
-	},
-	WebPage: {
-		...( require( '../_includes/11ty-starter-common/data/jsonld/webpage.js' )( site ) ?? {} ),
-		// Overrides here.
-	},
-	Person: {
-		...( require( '../_includes/11ty-starter-common/data/jsonld/person.js' )( site ) ?? {} ),
-		// Overrides here.
-	},
-	LocalBusiness: {
-		...( require( '../_includes/11ty-starter-common/data/jsonld/local-business.js' )( site ) ?? {} ),
-		// Overrides here.
-	}
-};
+site.jsonld = [
+	require( '../_includes/11ty-starter-common/data/jsonld/website.js' )( site ),
+	require( '../_includes/11ty-starter-common/data/jsonld/webpage.js' )( site ),
+	require( '../_includes/11ty-starter-common/data/jsonld/person.js' )( site ),
+	require( '../_includes/11ty-starter-common/data/jsonld/local-business.js' )( site ),
+];
 
 site.llms = {
-
-	// See this for links you can add for local businesses.
-	...( require( '../_includes/11ty-starter-common/data/llms/local-business.js' )( site ) ?? {} ),
+	...require( '../_includes/11ty-starter-common/data/llms/local-business.js' )( site ),
 };
 
 module.exports = site;
