@@ -1,10 +1,10 @@
 const baseJsonLd = require( '../_includes/11ty-starter-common/data/jsonld.js' );
 
-module.exports = Object.assign(
-	baseJsonLd,
+module.exports = Object.assign( baseJsonLd,
 
-	// Overrides.
+	// Overrides...
 	{
+
 		Person: {
 			...baseJsonLd.Person ?? {},
 			name: 'Goofy Goof',
