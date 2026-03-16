@@ -1,42 +1,11 @@
-# Goofys Disneyland Adventure Co.
+# Site Title
 
-> Goofys Disneyland Adventure Co. is a $$ serving Anaheim, California with Site description.
+> Site Title is a local entertainment provider serving the Anaheim, California area with Site description.
 
 Site description
-Primary location: 1234 Disney Lane, Anaheim, CA 92802
-Phone: +1-555-0464
-Service areas: Anaheim, California
-Primary audience: Theme Park Hosting, Family Entertainment, Cartoon Sports Instruction, Character Meet-and-Greets, Delightfully Clumsy Navigation
-Hours: Mo-Su 08:00-22:00
 Booking / contact: https://example.com#booking
 
-## Core Business Information
-- [Homepage](https://example.com#homepage): Overview of Goofy&#39;s Disneyland Adventure Co., immersive tours, and local entertainment schedule.
-- [Contact](https://example.com#contact): Primary contact details, phone, and directions to the Anaheim experience.
-- [About](https://example.com#about): Background on the Goofy-themed host crew, trust signals, and regional expertise.
 
-## Services
-- [Goofy Guided Park Adventures](https://example.com#goofy-guided-adventures): Cheerfully chaotic guided strolls through the park featuring scenic shortcuts, surprise detours, and an above-average chance of somebody dropping a hat.
-- [Goofy Character Photo Sessions](https://example.com#goofy-photo-ops): Memorable photo sessions with exaggerated poses, oversized smiles, and the occasional delightfully mistimed wave.
-- [Goofy Junior How-To Lessons](https://example.com#goofy-junior-lessons): Playful family lessons inspired by Goofys classic how-to style, covering dance moves, goofy sportsmanship, and cartoon-grade enthusiasm.
 
-## Local Relevance
-- [Anaheim Service Page](https://example.com#anaheim-service): Local resources and booking tips for Anaheim visitors.
-- [California Parks Page](https://example.com#california-parks): Regional coverage for Disneyland-area travelers.
-- [Downtown Disney &amp; Surrounding Areas](https://example.com#downtown-disney): Coverage for dining, shopping, and nearby neighborhoods.
-- [Directions / Map](https://example.com#directions): Map, directions, and transit tips for Goofy-hosted meet-ups.
 
-## Conversions
-- [Book Appointment](https://example.com#book): Schedule a guided adventure, photo session, or junior lesson.
-- [Request Quote](https://example.com#quote): Request a custom itinerary or group experience estimate.
-- [FAQ](https://example.com#faq): Answers about pricing, timing, protocols, and experience coverage.
-
-## Authority &amp; Trust
-- [Case Studies / Portfolio](https://example.com#portfolio): Examples of completed adventures, unexpected wins, and happy families.
-- [Certifications / Credentials](https://example.com#credentials): Licenses, training, and approvals that keep the Goofy crew accountable.
-- [Policies](https://example.com#policies): Safety, cancellation, and guest guarantees for every adventure.
-
-## Optional
-- [Promotions / Special Offers](https://example.com#offers): Seasonal offers, character meet-and-greets, and limited-time bundles.
-- [Community / Sponsorships](https://example.com#community): Local involvement, partnerships, and Anaheim-area events.
 
