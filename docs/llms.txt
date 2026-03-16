@@ -1,11 +1,6 @@
-# Site Title
+# Unknown Business
 
-> Site Title is a local entertainment provider serving the Anaheim, California area with Site description.
+> Unknown Business is a local entertainment provider serving the Anaheim, California area with unique guided adventures inspired by Goofy.
 
-Site description
+Unknown description.
 Booking / contact: https://example.com#booking
-
-
-
-
-
