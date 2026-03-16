@@ -29,8 +29,11 @@ site.jsonld = [
 	require( '../_includes/11ty-starter-common/data/jsonld/webpage.js' )( site ),
 	require( '../_includes/11ty-starter-common/data/jsonld/person.js' )( site ),
 	require( '../_includes/11ty-starter-common/data/jsonld/local-business.js' )( site, {
+		priceRange: '$$',
+		telephone: '+15555555555',
 		address: {
 			postalCode: '87114',
+			streetAddress: '1234 Albuquerque Ave',
 			addressLocality: 'Albuquerque', // City.
 			addressRegion: 'NM', // State.
 			addressCountry: 'US', // US
