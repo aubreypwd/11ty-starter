@@ -6,7 +6,7 @@ module.exports = {
 
 	meta: {
 		desc: 'Site description',
-		img: '',
+		img: '/assets/img/example.webp',
 		twitter: 'example',
 		author: 'My Name'
 	},
@@ -94,7 +94,8 @@ module.exports = {
 					postalCode: '92802',
 					addressLocality: 'Anaheim',
 					addressRegion: 'CA',
-					addressCountry: 'US'
+					addressCountry: 'US',
+					streetAddress: '1234 Disney Lane'
 				},
 				openingHours: [
 					'Mo-Su 08:00-22:00'
