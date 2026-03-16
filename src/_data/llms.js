@@ -1,7 +1,5 @@
 const site = require( './site.js' );
-const jsonld = require( './jsonld.js' )();
-
-// See _data/jsonld.js for places where other data comes from.
+const jsonld = require( './jsonld.js' );
 
 module.exports = {
 	'Core Business Information': {
