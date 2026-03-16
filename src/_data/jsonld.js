@@ -1,0 +1,1 @@
+module.exports = () => require( '../_includes/11ty-starter-common/data/jsonld.js' );
