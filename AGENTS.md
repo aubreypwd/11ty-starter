@@ -42,6 +42,15 @@ The following rules are mandatory for automated agents and contributors acting o
 - Never run Git commands that modify any remote state, including pushes, remote pulls, subtree sync commands, or similar write operations.
 - Avoid using Python for repository tasks when standard shell tools or existing project commands can do the job.
 - Prefer normal file edits and standard system utilities for inspection.
+- Do not modify files in `node_modules/`; treat installed dependencies as vendor code unless the user explicitly asks otherwise.
+- Do not modify files in `docs/`; it is generated build output and should only change when the owner runs the build.
+- Do not modify `.netlify/` unless the user explicitly asks for work there.
+- `.githooks/` may be modified, but only when the user explicitly asks for changes in that directory.
 - Do not run `npm run ...` commands, build steps, or test steps unless the user explicitly asks; the owner usually runs those commands and validates agent work personally.
 - Preserve the update path between `11ty-starter` and `11ty-starter-common`; avoid changes that make shared code harder to pull into existing projects.
 - Favor straightforward, override-friendly solutions over deep nesting, heavy indirection, or major structural reshuffles.
+- When adding or refactoring overrideable config, prefer `required.deepmerge( base, override )` over object spread for override composition.
+- In shared config modules, separate feature toggles from override payloads: use a flags/options object for enabling or disabling behavior, and a separate overrides object for config data.
+- Scope override payloads by the API being invoked instead of by ad hoc nested shapes. Examples: `overrides.config`, `overrides['setTemplateFormats']`, `overrides['addPlugin']['eleventy-sass']`, `overrides['addExtension']['js']`, `overrides['addBundle']['css']`, `overrides['addPassthroughCopy']['sanitize.css']`, `overrides['Image']['@11ty/eleventy-img']`, `overrides['build']['esbuild']`.
+- When a function call already has a clear target name, reuse that exact target as the override key rather than inventing a second naming scheme.
+- When a required module is only used once, prefer calling `require( ... )` inline instead of assigning it to a temporary variable first. If the module will be reused, referenced multiple times, or the inline form would hurt readability, assign it to a variable instead.
