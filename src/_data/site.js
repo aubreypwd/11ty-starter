@@ -10,6 +10,18 @@ const site = {
 		author: 'My Name'
 	},
 
+	body: {
+		js: {
+			scripts: {
+				test: {
+					src: '/assets/js/test.js',
+					inline: false,
+					attrs: 'defer'
+				}
+			}
+		}
+	},
+
 	head: {
 		google: {
 			fonts: {
