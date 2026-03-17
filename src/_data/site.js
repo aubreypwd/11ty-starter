@@ -10,16 +10,13 @@ const site = {
 		author: 'My Name'
 	},
 
-	ga4: {
-		id: '',
-		force: false
-	},
-
 	head: {
 		google: {
-			fonts: [
-				'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rock+Salt&family=Teko:wght@300..700&display=swap'
-			]
+			fonts: {
+				config: [
+					'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rock+Salt&family=Teko:wght@300..700&display=swap'
+				]
+			}
 		}
 	}
 };
