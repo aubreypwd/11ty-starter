@@ -5,7 +5,7 @@ const site = {
 
 	meta: {
 		desc: 'Site description',
-		img: '/assets/img/example.webp',
+		img: '/assets/img/example.webp', // Required for jsonld too, advise to set.
 		twitter: 'example',
 		author: 'My Name'
 	},
@@ -18,7 +18,7 @@ const site = {
 	head: {
 		google: {
 			fonts: [
-				// 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rock+Salt&family=Teko:wght@300..700&display=swap'
+				'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rock+Salt&family=Teko:wght@300..700&display=swap'
 			]
 		}
 	}
