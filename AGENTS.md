@@ -1,0 +1,47 @@
+# Repository Guidelines
+
+## Project Purpose
+`11ty-starter` is the owner's personal starter project for building client websites with Eleventy. It is open source, but it is not designed as a general-purpose product for outside users. The goal is to make new project setup faster for the owner and to keep long-lived client sites easier to maintain over time.
+
+`11ty-starter-common` is a permanent part of that design. It contains shared components, utilities, and operational patterns that all sites created from `11ty-starter` can inherit. Projects based on this starter can pull updated shared behavior with `npm run tools:pull`, which is how fixes, improvements, and new shared features flow into existing sites.
+
+Agents should optimize for that goal: keep things customizable, overrideable, and easy to understand. Avoid introducing unnecessary abstraction, clever structure, or organizational churn that makes the starter harder to use.
+
+## Project Structure & Module Organization
+Source files live in `src/`. Page templates such as `src/index.njk` and `src/llms.njk` are built by Eleventy into `docs/`, which is the generated output directory and should be treated as build artifact output. Shared data lives in `src/_data/`, reusable layouts/includes live in `src/_includes/`, and site assets live under `src/assets/` (`css/`, `js/`, `img/`, and `assets.json`). Root config is handled by [`.eleventy.js`](/Users/aubreypwd/Sites/11ty/11ty-starter/.eleventy.js), which extends the common setup in `src/_includes/11ty-starter-common/`.
+
+`src/_includes/11ty-starter-common/` is a Git subtree mirror of the shared `11ty-starter-common` project. It is not a standalone app and is inherently tied to `11ty-starter`. Treat it as upstream-managed shared infrastructure: make changes there only when the work truly belongs in the common layer, and keep repository-specific customization in the root project where possible.
+
+File locations should be treated as stable. Moving files around, especially inside `11ty-starter-common`, is usually a bad idea because future subtree updates can shift paths into existing projects and break overrides or references. Prefer extending existing paths and patterns over reorganizing them.
+
+## Build, Test, and Development Commands
+- `npm run serve`: clears `docs/` and starts Eleventy dev server on port `8083`.
+- `npm run build`: clears `docs/` and creates a production build.
+- `npm run reset`: removes generated output from `docs/`.
+- `npm run netlify:dev`: runs the site through Netlify Dev locally.
+- `npm run netlify:live`: starts Netlify Dev with a live tunnel.
+
+These commands document the normal local workflow, but agents should generally not run them. The repository owner typically runs `npm run ...` commands manually.
+
+## Coding Style & Naming Conventions
+This codebase loosely follows WordPress-style formatting. Use tabs for indentation, single quotes in JavaScript, semicolons, and readable vertical spacing between logical blocks. Prefer spaced control and function parentheses when touching existing project files, for example `function ( value )` and `if ( condition )`, and keep multiline objects and arrays trailing-comma friendly when that is already the local pattern. Align new code to the surrounding file instead of forcing a different house style into it.
+
+Do not use Prettier, ESLint auto-fix, or any other formatter to rewrite files. Formatting here is intentional and hand-maintained. Make minimal edits, preserve existing whitespace where practical, and avoid large formatting-only diffs.
+
+Keep CommonJS module syntax in config and data files. Use descriptive lowercase file names for assets such as `critical.css` and `main.js`, and keep Nunjucks templates in `.njk` files. Prefer small, focused data modules in `src/_data/` over embedding large configuration blocks in templates.
+
+## Testing Guidelines
+This starter does not define an automated test suite yet. In practice, the repository owner performs testing and validation after agent changes, including `npm run build`, local serving, and manual inspection of generated output in `docs/`. Agents should not assume they need to run test or build commands unless explicitly asked.
+
+## Commit & Pull Request Guidelines
+No repository-specific commit convention is documented in local files, so use short imperative commit subjects such as `Add homepage hero copy` or `Refactor site metadata`. Keep pull requests focused, explain the user-facing impact, list validation steps, and include screenshots when layout or rendered output changes.
+
+## Agent-Specific Notes
+The following rules are mandatory for automated agents and contributors acting on behalf of the owner:
+- Never create Git commits on the user's behalf.
+- Never run Git commands that modify any remote state, including pushes, remote pulls, subtree sync commands, or similar write operations.
+- Avoid using Python for repository tasks when standard shell tools or existing project commands can do the job.
+- Prefer normal file edits and standard system utilities for inspection.
+- Do not run `npm run ...` commands, build steps, or test steps unless the user explicitly asks; the owner usually runs those commands and validates agent work personally.
+- Preserve the update path between `11ty-starter` and `11ty-starter-common`; avoid changes that make shared code harder to pull into existing projects.
+- Favor straightforward, override-friendly solutions over deep nesting, heavy indirection, or major structural reshuffles.
