@@ -2,6 +2,8 @@ const site = {
 	baseUrl: 'https://example.com',
 	lang: 'en-US',
 	title: 'Site Title',
+	disabled: [],
+	configs: {},
 
 	meta: {
 		desc: 'Site description',
@@ -11,23 +13,20 @@ const site = {
 	},
 
 	body: {
-		js: {
-			scripts: {
-				test: {
-					src: '/assets/js/test.js',
-					inline: false,
-					attrs: 'defer'
-				}
-			}
-		}
-	},
-
-	head: {
-		google: {
-			fonts: {
-				config: [
+		head: {
+			google: {
+				fonts: [
 					'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rock+Salt&family=Teko:wght@300..700&display=swap'
 				]
+			},
+			js: {
+				scripts: {
+					test: {
+						src: '/assets/js/test.js',
+						inline: false,
+						attrs: 'defer'
+					}
+				}
 			}
 		}
 	}
