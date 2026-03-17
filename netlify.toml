@@ -4,6 +4,6 @@
 [dev]
   framework = "#custom"
   command = "npm run serve"
-  targetPort = 8083
+  targetPort = 8084
   port = 8877
   publish = "docs/"
