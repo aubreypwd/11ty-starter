@@ -3,5 +3,5 @@ module.exports = {
 	path: require( 'path' ),
 	fs: require( 'fs' ),
 	crypto: require( 'crypto' ),
-	os: require( 'os' ),
+	os: require( 'os' )
 };
