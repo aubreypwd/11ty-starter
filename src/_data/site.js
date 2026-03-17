@@ -41,8 +41,6 @@ site.jsonld = [
 	} ),
 ];
 
-site.llms = {
-	...require( '../_includes/11ty-starter-common/data/llms/local-business.js' )( site ),
-};
+site.llms = require( '../_includes/11ty-starter-common/data/llms/local-business.js' )( site );
 
 module.exports = site;
