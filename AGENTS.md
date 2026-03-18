@@ -54,3 +54,8 @@ The following rules are mandatory for automated agents and contributors acting o
 - Scope shared config overrides by the API being invoked instead of by ad hoc nested shapes. Examples: `site.configs['setTemplateFormats']`, `site.configs.metagen['addPlugin']['eleventy-plugin-metagen']`, `site.configs.bundle['addPlugin']['EleventyRenderPlugin']`, `site.configs.bundle['addBundle']['css']`, `site.configs.css['addExtension']['css']`, `site.configs.js['addExtension']['js']`, `site.configs.js['build']['esbuild']`, `site.configs.sanitizeCss['addPassthroughCopy']['sanitize.css']`, `site.configs.eleventyImageTransformPlugin['addPlugin']['eleventyImageTransformPlugin']`.
 - When a function call already has a clear target name, reuse that exact target as the override key rather than inventing a second naming scheme.
 - When a required module is only used once, prefer calling `require( ... )` inline instead of assigning it to a temporary variable first. If the module will be reused, referenced multiple times, or the inline form would hurt readability, assign it to a variable instead.
+
+## Simplicity Preference
+When there are multiple valid implementations, prefer the one with less code, fewer temporary variables, and less scaffolding, as long as the result stays readable and does not break expected behavior.
+
+Do not add extra abstraction or defensive code just to preserve an implementation pattern if a simpler version is acceptable in this project. In templates especially, prefer direct expressions over setup variables when the output remains clear enough to maintain.
