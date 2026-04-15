@@ -21,7 +21,7 @@ File locations should be treated as stable. Moving files around, especially insi
 - `npm run netlify:dev`: runs the site through Netlify Dev locally.
 - `npm run netlify:live`: starts Netlify Dev with a live tunnel.
 
-These commands document the normal local workflow, but agents should generally not run them. The repository owner typically runs `npm run ...` commands manually.
+These commands document the normal local workflow, but agents should not run them unless the user explicitly asks. The repository owner typically runs `npm run ...` commands manually.
 
 ## Coding Style & Naming Conventions
 This codebase loosely follows WordPress-style formatting. Use tabs for indentation, single quotes in JavaScript, semicolons, and readable vertical spacing between logical blocks. Prefer spaced control and function parentheses when touching existing project files, for example `function ( value )` and `if ( condition )`, and keep multiline objects and arrays trailing-comma friendly when that is already the local pattern. Align new code to the surrounding file instead of forcing a different house style into it.
@@ -33,15 +33,36 @@ Keep CommonJS module syntax in config and data files. Use descriptive lowercase 
 ## Testing Guidelines
 This starter does not define an automated test suite yet. In practice, the repository owner performs testing and validation after agent changes, including `npm run build`, local serving, and manual inspection of generated output in `docs/`. Agents should not assume they need to run test or build commands unless explicitly asked.
 
+When the user asks for launch-readiness, publish-readiness, or a review of what will go live, prefer judging the generated output in `docs/` from a production build rather than reasoning only from source templates or from `npm run serve` behavior.
+
 ## Commit & Pull Request Guidelines
 No repository-specific commit convention is documented in local files, so use short imperative commit subjects such as `Add homepage hero copy` or `Refactor site metadata`. Keep pull requests focused, explain the user-facing impact, list validation steps, and include screenshots when layout or rendered output changes.
 
+## Eleventy Expertise Expectation
+Approach this project as an Eleventy expert first, not as a generic templating assistant.
+
+Prefer Eleventy-native patterns when they are clear and supported by the framework.
+
+When Eleventy behavior is uncertain, verify it against official Eleventy documentation or by carefully inspecting the local config before recommending an approach.
+
+Do not present guesses, improvised conventions, or workaround-heavy solutions as if they are standard Eleventy behavior.
+
+Explain the Eleventy mental model behind recommendations when the user is learning architecture, collections, front matter, or permalink behavior.
+
+Answer architectural questions concisely by default so the core recommendation is easy to understand quickly.
+
+For simple navigation or listing needs that map directly to canonical source folders, prefer filtering `collections.all` by stable template path signals like `item.inputPath` in the template instead of adding tags, introducing duplicate data in `src/_data/site.js`, or creating extra custom collections unless the user asks for a different pattern.
+
+In Eleventy 3, `---js` front matter should be treated as ESM-style runtime, not normal project CommonJS. Do not assume `require()` is available there, and do not assume `module-alias` mappings such as `@root/...` will resolve inside JS front matter just because they work in normal CommonJS project files.
+
+If JS front matter needs a dependency, prefer a direct package import or move the logic into a normal project data/helper file where the repo's CommonJS patterns already work.
+
 ## Agent-Specific Notes
 The following rules are mandatory for automated agents and contributors acting on behalf of the owner:
-- Never create Git commits on the user's behalf.
-- Never run Git commands that modify any remote state, including pushes, remote pulls, subtree sync commands, or similar write operations.
-- Avoid using Python for repository tasks when standard shell tools or existing project commands can do the job.
-- Prefer normal file edits and standard system utilities for inspection.
+- Never use Git in this repository. Do not run any Git command for inspection, status checks, commits, branches, diffs, remotes, subtree operations, or any other purpose.
+- Never use Python in this repository for commands, scripts, one-off inspection, file edits, transformations, or automation. Do not write Python code and do not run Python commands.
+- Use Bash for shell work, and prefer basic shell utilities such as `rg`, `sed`, `awk`, `find`, `ls`, and similar standard commands for inspection and simple transformations.
+- Prefer normal file edits and standard Bash/system utilities for inspection.
 - Do not modify files in `node_modules/`; treat installed dependencies as vendor code unless the user explicitly asks otherwise.
 - Do not modify files in `docs/`; it is generated build output and should only change when the owner runs the build.
 - Do not modify `.netlify/` unless the user explicitly asks for work there.
