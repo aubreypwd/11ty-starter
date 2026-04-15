@@ -41,6 +41,7 @@
     "@aubreypwd/11ty-starter-common": "git+ssh://git@github.com:aubreypwd/11ty-starter-common.git",
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.0",
+    "@popperjs/core": "^2.11.8",
     "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
     "@sardine/eleventy-plugin-tinycss": "^2.0.0",
     "@sardine/eleventy-plugin-tinyhtml": "^0.2.0",
@@ -52,14 +53,18 @@
     "eleventy-plugin-robotstxt": "^1.0.2",
     "eleventy-sass": "^3.0.0-beta.0",
     "esbuild": "^0.27.3",
+    "humanize-list": "^1.0.1",
+    "libphonenumber-js": "^1.12.41",
     "markdown-it": "^14.1.1",
     "module-alias": "^2.3.4",
     "node-html-parser": "^7.1.0",
     "purgecss-from-html": "^8.0.0",
+    "qrcode": "^1.5.4",
     "rimraf": "^6.1.3",
     "sanitize.css": "^13.0.0",
     "schemaorg-jsd": "^0.17.1",
     "structured-data-testing-tool": "^4.5.0",
-    "terser": "^5.46.0"
+    "terser": "^5.46.0",
+    "tippy.js": "^6.3.7"
   }
 }
