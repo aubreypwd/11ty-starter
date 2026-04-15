@@ -70,6 +70,9 @@ The following rules are mandatory for automated agents and contributors acting o
 - Do not run `npm run ...` commands, build steps, or test steps unless the user explicitly asks; the owner usually runs those commands and validates agent work personally.
 - Preserve the update path between `11ty-starter` and `11ty-starter-common`; avoid changes that make shared code harder to pull into existing projects.
 - Favor straightforward, override-friendly solutions over deep nesting, heavy indirection, or major structural reshuffles.
+- When reviewing another project built from this starter for ideas to port back, start by checking whether the current `11ty-starter` or `11ty-starter-common` already has the capability before proposing it as a missing starter feature.
+- For starter-port audits, use a high bar: only recommend code that is clearly generic, reusable across multiple future client sites, and belongs in shared starter infrastructure rather than in one project's custom implementation.
+- Do not treat project-specific layouts, content models, forms, editorial flows, visual components, or one-off page architectures as starter candidates unless there is a strong cross-project reuse case already visible.
 - Treat `src/_includes/11ty-starter-common/includes/layouts/partials/` as shared layout-building partials. They are meant to be reused by custom project layouts and may depend on normal layout, page, and site context.
 - Do not convert layout partials into macros by default. In this starter, many layout partials are orchestration templates that loop over data, decide what a layout should emit, and then call lower-level reusable primitives such as shortcodes or existing macros.
 - Prefer a shortcode or macro when the thing being built is a true reusable primitive that should be callable outside a layout, should accept explicit inputs at the callsite, or should act like a component with a stable API.
