@@ -2,6 +2,7 @@ const site = {
 	baseUrl: 'https://example.com',
 	lang: 'en-US',
 	title: 'Site Title',
+	priceRange: 1,
 	disabled: [],
 	configs: {},
 
@@ -34,7 +35,7 @@ site.jsonld = {
 		]
 	} ),
 	LocalBusiness: require( '../_includes/11ty-starter-common/data/jsonld/local-business.js' )( site, {
-		priceRange: '$',
+		priceRange: '$'.repeat( site.priceRange * 2 ),
 		telephone: '+15555550000',
 		streetAddress: '123 Example Street',
 		areaServed: 'Region A',
