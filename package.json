@@ -26,9 +26,11 @@
     "reset": "rimraf docs/",
     "tools:push": "git subtree push --prefix=src/_includes/11ty-starter-common git@github.com:aubreypwd/11ty-starter-common.git v2",
     "tools:pull": "git subtree pull --prefix=src/_includes/11ty-starter-common git@github.com:aubreypwd/11ty-starter-common.git v2 --squash",
+    "tools:add": "git subtree add --prefix=src/_includes/11ty-starter-common git@github.com:aubreypwd/11ty-starter-common.git v2 --squash",
+    "tools:check": "[ -f \"src/_includes/11ty-starter-common/README.md\" ] || { git rev-parse --is-inside-work-tree >/dev/null 2>&1 || exit 0; npm run tools:add; }",
     "setup": "npm run setup:git-hooks",
     "setup:git-hooks": "git config core.hooksPath .githooks",
-    "postinstall": "npm run setup && ( npm run tools:pull || true )",
+    "postinstall": "npm run setup && npm run tools:check",
     "netlify:live": "netlify dev --live localhost",
     "netlify:dev": "netlify dev"
   },
